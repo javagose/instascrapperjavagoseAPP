@@ -1,0 +1,46 @@
+
+<div ng-init="getMedia()">
+
+  <div class="row" >
+    <div class="col-md-8">
+      <img src="{{media.imageHighResolutionUrl}}" class="img-rounded">
+    </div>
+    <div class="col-md-4">
+      <h3>{{media.caption}}</h3><br>
+
+
+      Location  : {{media.locationName}} Like count : {{Media.likesCount}}<br>
+      Comments count : {{media.commentsCount}}
+      <br><hr>
+      <img src="{{media.owner.profilePicUrl}}" alt="{{media.owner.username}}" class="img-circle owner-img">
+        <a href="#!/user/{{media.owner.username}}">{{media.owner.fullName}} [{{media.owner.username}}]</h4></a>
+    </div>
+    <br><hr>
+
+  </div>
+
+</div>
+
+
+<div ng-init="getMediaComments()">
+  <ul class="list-group">
+
+<div ng-repeat="comment in mediaComments">
+  <li class="list-group-item">
+
+      <div class="row" >
+
+            <div class="col-md-4">
+              <img src="{{comment.user.profilePicUrl}}" alt="{{comment.user.username}}" class="img-circle owner-img">
+                <a href="#!/user/{{comment.user.username}}">{{comment.user.username}}</a>
+            </div>
+            <div class="col-md-8">
+              {{comment.text}}
+            </div>
+          </div>
+      </li>
+  </div>
+
+</ul>
+
+</div>

@@ -1,25 +1,86 @@
-/* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
+@import url('bower_components/bootstrap/dist/css/font-awesome.css');
+/* ==== overwrite bootstrap standard ==== */
+@import url('bower_components/bootstrap/dist/css/animate.css');
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-size: normal;
+	font-smooth: always;
+	-webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+}
+.app{
+  padding: 85px;
 }
 
-.menu:before {
-  content: "[";
+a {
+	text-decoration: none;
+	-moz-transition: all linear .3s;
+	-webkit-transition: all linear .3s;
+	-o-transition: all linear .3s;
+	transition: all linear .3s;
 }
 
-.menu:after {
-  content: "]";
+a:hover {
+	text-decoration: none;
 }
 
-.menu > li {
-  display: inline;
+img {
+	max-width: 100%;
 }
 
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+/*---------------*/
+/***** gallery *****/
+/*---------------*/
+.gallery {
+	padding:50px;
 }
+
+.gallery .text-center h2 {
+	text-transform:uppercase;
+	font-weight:550;
+	font-size:24px;
+	margin-bottom:30px;
+}
+
+.gallery figure {
+	position: relative;
+	margin-top:30px;
+	margin-bottom:30px;
+	background: #272727;
+	text-align: center;
+	cursor: pointer;
+}
+
+.gallery figure img {
+	position: relative;
+	display: block;
+	opacity: 0.8;
+  width: 100%;
+}
+
+.gallery figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.gallery figure figcaption::before,
+.gallery figure figcaption::after {
+	pointer-events: none;
+}
+/*---------------*/
+/***** Marley *****/
+/*---------------*/
+
+.owner-img{
+  width: 15%;
+}
+
+//search CSS

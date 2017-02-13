@@ -1,0 +1,35 @@
+
+<div ng-init="getUsersbyUsername()">
+  <div class="row" >
+    <div ng-repeat="user in users | limitTo:10">
+      <div class="col-md-2">
+        <a href="#!/user/{{user.username}}" class="thumbnail" >
+          <img src="{{user.profilePicUrl}}" alt="{{user.fullName}}">
+            <div class="caption">
+              <h4>{{user.fullName}}</h4>
+              <p>{{user.username}} followed by : {{user.followedByCount}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div ng-init="getTagMedias()">
+  <div class="row" >
+    <div ng-repeat="media in medias">
+      <div class="col-md-3">
+        <a href="#!/post/{{media.code}}" class="thumbnail" >
+          <img src="{{media.imageStandardResolutionUrl}}" alt="{{media.caption}}">
+            <div class="caption">
+              <h4>likes : {{media.likesCount}} comments : {{media.commentsCount}}</h4>
+              <p>{{media.caption}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
