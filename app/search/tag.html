@@ -1,17 +1,104 @@
+<div class="container">
 
-<div ng-init="getTagMedias()">
-  <div class="row" >
-    <div ng-repeat="media in medias">
-      <div class="col-md-3">
-        <a href="#!/post/{{media.code}}" class="thumbnail" >
-          <img src="{{media.imageStandardResolutionUrl}}" alt="{{media.caption}}">
-            <div class="caption">
-              <h4>likes : {{media.likesCount}} comments : {{media.commentsCount}}</h4>
-              <p>{{media.caption}}</p>
+
+  <section class="home-section color-dark bg-white">
+
+
+    <div class="row"  ng-show="!loadingTopTag">
+        <div class="col-lg-8 col-lg-offset-2 col-md-offset-2 col-md-8">
+                <div class="section-heading text-center ">
+                  <h1><strong>#{{tag_name}}</strong> Most Trending Medias</h1>
+                </div>
             </div>
-          </a>
         </div>
+
+
+
+  <div class="text-center">
+      <div class="container" ng-init="getTopTagMedias()">
+
+          <div class="row">
+            <div ng-repeat="media in topMedias">
+              <div class="col-xs-12 col-sm-6 col-md-3 marginTop10">
+                <a href="#!/post/{{media.code}}">
+                  <div class="team-wrapper-big wow bounceInUp " data-wow-delay="0.2s">
+                          <div class="team-wrapper-overlay">
+                            <!--<h5>Adrian Dawn</h5> !-->
+                            <p>{{media.caption}}</p>
+                            <div class="social-icons">
+                              <ul class="team-social">
+                                <li>{{media.likesCount}}<i class="fa fa-heart" aria-hidden="true"></i></li>
+                                <li>{{media.commentsCount}}<i class="fa fa-comment" aria-hidden="true"></i></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div ng-if="media.type == 'video'">
+                            <img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}"  />
+                            <img src="assets/img/play-btn.png" class="imagePlay" alt="">
+
+                          </div>
+                          <div ng-if="media.type == 'image'">
+                            <img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}" />
+                          </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
       </div>
-    </div>
   </div>
+
+  <div class="row" ng-show="!loadingTag">
+      <div class="col-lg-8 col-lg-offset-2 col-md-offset-2 col-md-8">
+              <div class="section-heading text-center ">
+                <h1><strong>#{{tag_name}}</strong> All Medias</h1>
+              </div>
+          </div>
+      </div>
+
+
+      <center>
+        <div class="text-center">
+          <div  ng-show="loadingTag">
+            <img src="assets/img/spinner.gif" class="spinnerIcon">
+          </div>
+        </div>
+      </center>
+
+
+  <div class="text-center">
+      <div class="container" ng-init="getTagMedias()">
+
+          <div class="row">
+            <div ng-repeat="media in medias">
+              <div class="col-xs-12 col-sm-6 col-md-3 marginTop10">
+                <a href="#!/post/{{media.code}}">
+                  <div class="team-wrapper-big wow bounceInUp " data-wow-delay="0.2s">
+                          <div class="team-wrapper-overlay">
+                            <!--<h5>Adrian Dawn</h5> !-->
+                            <p>{{media.caption}}</p>
+                            <div class="social-icons">
+                              <ul class="team-social">
+                                <li>{{media.likesCount}}<i class="fa fa-heart" aria-hidden="true"></i></li>
+                                <li>{{media.commentsCount}}<i class="fa fa-comment" aria-hidden="true"></i></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div ng-if="media.type == 'video'">
+                            <img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}"  />
+                            <img src="assets/img/play-btn.png" class="imagePlay" alt="">
+
+                          </div>
+                          <div ng-if="media.type == 'image'">
+                            <img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}" />
+                          </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+  </section>
+
 </div>

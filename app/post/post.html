@@ -1,46 +1,78 @@
-
-<div ng-init="getMedia()">
-
-  <div class="row" >
-    <div class="col-md-8">
-      <img src="{{media.imageHighResolutionUrl}}" class="img-rounded">
-    </div>
-    <div class="col-md-4">
-      <h3>{{media.caption}}</h3><br>
-
-
-      Location  : {{media.locationName}} Like count : {{Media.likesCount}}<br>
-      Comments count : {{media.commentsCount}}
-      <br><hr>
-      <img src="{{media.owner.profilePicUrl}}" alt="{{media.owner.username}}" class="img-circle owner-img">
-        <a href="#!/user/{{media.owner.username}}">{{media.owner.fullName}} [{{media.owner.username}}]</h4></a>
-    </div>
-    <br><hr>
-
+<div class="container">
+  <div class="home-section" ng-show="loadingError">
+      <div error-message></div>
   </div>
-
-</div>
-
-
-<div ng-init="getMediaComments()">
-  <ul class="list-group">
-
-<div ng-repeat="comment in mediaComments">
-  <li class="list-group-item">
-
-      <div class="row" >
-
-            <div class="col-md-4">
-              <img src="{{comment.user.profilePicUrl}}" alt="{{comment.user.username}}" class="img-circle owner-img">
-                <a href="#!/user/{{comment.user.username}}">{{comment.user.username}}</a>
-            </div>
-            <div class="col-md-8">
-              {{comment.text}}
-            </div>
+  <div ng-show="!loadingError" >
+    <center>
+      <div class="text-center">
+          <div  ng-show="loadingMedia">
+            <img src="assets/img/spinner.gif" class="spinnerIcon">
           </div>
-      </li>
+        </div>
+    </center>
+    <section ng-show="!loadingMedia" class="content-item" id="gallery-item" ng-init="getMedia()">
+
+              <div class="row" >
+                  <div class="col-md-8">
+                    <div ng-if="media.type == 'video'">
+                      <div align="center" class="embed-responsive embed-responsive-16by9" >
+                       <object class="embed-responsive-item">
+                         <div class="video-item" >
+                           <video width="480" height="360" autoplay controls download="{{media.owner.fullName}}+ {{media.id}}">
+                             <source src="{{media.videoStandardResolutionUrl}}" type="video/mp4">
+                             Your browser does not support HTML5 video.
+                           </video>
+                         </div>
+                       </object>
+                     </div>
+                    </div>
+
+
+                      <div class="" ng-if="media.type == 'image'">
+                        <img src="{{media.imageHighResolutionUrl}}" class="img-responsive" alt="">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <img src="{{media.owner.profilePicUrl}}" alt="{{media.owner.username}}" class="img-circle owner-img">
+                      <a href="#!/user/{{media.owner.username}}">{{media.owner.fullName}} [{{media.owner.username}}]</h4></a>
+                        <div class="box">
+                          <small><cite title="Source Title">{{media.locationName}}  <i class="icon-map-marker"></i></cite></small>
+                            <p ng-bind-html="media.caption | createAnchors"></p>
+                        </div>
+                        <div class="box">
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-heart"></i>{{media.likesCount}} <i class="fa fa-comment"></i>{{media.commentsCount}}</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+        </section>
+
+
+    <div ng-init="getMediaComments()" class="row box">
+      <div class="col-md-8">
+        <center>
+          <div class="text-center">
+              <div  ng-show="loadingComment">
+                <img src="assets/img/spinner.gif" class="spinnerIcon">
+              </div>
+            </div>
+        </center>
+        <div ng-show="!loadingComment">
+          <ul class="list-group" ng-repeat="comment in mediaComments">
+            <li class="list-group-item comment-box">
+                        <img src="{{comment.user.profilePicUrl}}" alt="{{comment.user.username}}" class="paul-left img-circle comment-img">
+                          <a href="#!/user/{{comment.user.username}}">{{comment.user.username}}</a>
+                         <span ng-bind-html="comment.text | createAnchors"></span>
+                </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-
-</ul>
-
-</div>
+  </div>

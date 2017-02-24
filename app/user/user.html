@@ -1,48 +1,85 @@
-<div ng-init="getUser()">
-
-  <div class="row" >
-    <div class="col-md-4">
-      <img src="{{user.profilePicUrl}}" class="img-circle">
-    </div>
-    <div class="col-md-8">
-      <h3>{{user.username}}</h3><br>
-      <h4>{{user.fullName}}</h4> {{user.biography}}<br>
-      followed by count : {{user.followedByCount}} follows count : {{user.followsCount}}<br>
-      Media count : {{user.mediaCount}}
-    </div>
+<div class="container">
+	<div class="home-section" ng-show="loadingError">
+      <div error-message></div>
   </div>
+	<section ng-show="!loadingError" class="home-section color-dark bg-white">
+				<div class="container marginbot-50">
+					<div class="row">
+		  				<div class="col-lg-8 col-lg-offset-2">
+		    					<div class="wow flipInY" data-wow-offset="0" data-wow-delay="0.4s">
+		        					<div class="section-heading text-center home-section">
+		                    <div ng-init="getUser()">
+		                      <div class="row" >
+		                        <div class="col-md-4">
+		                          <img src="{{user.profilePicUrl}}" class="img-circle">
+		                        </div>
+		                        <div class="col-md-8">
+		                          <h2 class="h-bold">{{user.username}} / {{user.fullName}} </h2>
+		                          <div class="divider-header"></div>
+		                          <p>{{user.biography}}. <br>
+		                            <ul class="list-group list-group-horizontal">
+		                                <li  class="list-group-item active"><span>Media count: {{user.mediaCount}}</span></li>
+		                                <li  class="list-group-item"> <span>followed by: {{user.followedByCount}}</span></li>
+		                                <li  class="list-group-item"><span>follows: {{user.followsCount}}</span></li>
+		                            </ul>
+		                        </div>
+		                      </div>
+		                    </div>
+		        					</div>
+		    					</div>
+		  				</div>
+					</div>
+				</div>
+				<center>
+					<div  ng-show="loadingUser">
+						<img src="assets/img/spinner.gif" class="spinnerIcon">
+					</div>
+				</center>
+
+				<div ng-show="!loadingUser">
+					<div ng-show="isPrivate">
+						<div class=" col-md-offset-2 col-md-8 text-center private-account">
+							<img src="https://cdn1.iconfinder.com/data/icons/users-vol-3/32/user-man-lock-block-512.png" alt="">
+							<h1 class="title" style="font-family: 'Satisfy', cursive;">This Account Is Private</h1>
+						</div>
+					</div>
+
+					<div class="text-center">
+			    		<div class="container" ng-init="getUserMedias()">
+			            <div class="row">
+			              <div ng-repeat="media in medias">
+			                <div class="col-xs-12 col-sm-6 col-md-3 marginTop10">
+			                  <a href="#!/post/{{media.code}}">
+			                    <div class="team-wrapper-big wow bounceInUp " data-wow-delay="0.2s">
+			                            <div class="team-wrapper-overlay">
+			                              <!--<h5>Adrian Dawn</h5> !-->
+			                              <p>{{media.caption}}</p>
+			                              <div class="social-icons">
+			                								<ul class="team-social">
+			                                  <li>{{media.likesCount}}<i class="fa fa-heart" aria-hidden="true"></i></li>
+			                                  <li>{{media.commentsCount}}<i class="fa fa-comment" aria-hidden="true"></i></li>
+			                								</ul>
+			                              </div>
+			                            </div>
+																	<div ng-if="media.type == 'video'">
+																		<img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}"  />
+																		<img src="http://www.slatecube.com/images/play-btn.png" class="imagePlay" alt="">
+
+																	</div>
+																	<div ng-if="media.type == 'image'">
+																		<img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}" />
+																	</div>
+
+			                    </div>
+			                  </a>
+			                </div>
+			              </div>
+			            </div>
+			        </div>
+					</div>
+
+
+		</div>
+</section>
 
 </div>
-
-<br><hr>
-
-<div class="gallery">
-		<div class="text-center">
-			<h2>Gallery</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat quod voluptate consequuntur ad quasi,<br> dolores obcaecati ex aliquid, dolor provident </p>
-		</div>
-    <div  ng-init="getUserMedias()">
-      <div class="row">
-        <div ng-repeat="media in medias">
-          <div class="col-md-4">
-              <a href="#!/post/{{media.code}}">
-                <figure class="effect-marley">
-        					<img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}" class="img-responsive"/>
-        					<figcaption>
-        						<h4>
-                      {{media.likesCount}}<i class="fa fa-heart" aria-hidden="true"></i>
-                      {{media.commentsCount}}<i class="fa fa-comment" aria-hidden="true"></i>
-                    </h4>
-                    <p>{{media.caption}}</p>
-        					</figcaption>
-        				</figure>
-              </a>
-      			</div>
-          </div>
-  		</div>
-    </div>
-
-
-
-		</div>
-	</div>
