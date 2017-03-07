@@ -1,13 +1,15 @@
 'use strict';
 
-angular.module('myApp.search', ['ngRoute'])
+angular.module('instaPage.search', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/tag/:tag_name', {
+    title : function(params){ return params.tag_name+" instagram Photos and videos";},
     templateUrl: 'search/tag.html',
     controller: 'tagCtrl'
   });
   $routeProvider.when('/search/:name', {
+    title : function(params){ return params.name+" users, Photos and videos";},
     templateUrl: 'search/searchresults.html',
     controller: 'searchCtrl'
   });

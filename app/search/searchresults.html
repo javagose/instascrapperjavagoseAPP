@@ -13,13 +13,13 @@
         <div class="col-lg-8 col-lg-offset-2 col-md-offset-2 col-md-8">
                 <div class="section-heading text-center ">
                   <h1><strong>{{tag_name}}</strong> Profile</h1>
+
                 </div>
             </div>
+
         </div>
-
+                <center><google-ads-lb></google-ads-lb></center>
   <div ng-init="getUsersbyUsername()">
-
-
     <div class="row" >
       <div ng-repeat="user in users | limitTo: 6">
         <div class="col-sm-4 col-md-2">
@@ -27,19 +27,20 @@
               <div class="team-members">
                   <div class="team-avatar">
                       <img class="img-responsive" src="{{user.profilePicUrl}}" alt="{{user.fullName}}">
-                      </div>
+                  </div>
                       <div class="team-desc">
                         <h4>{{user.username}}</h4>
                         <p> followers: {{user.followedByCount}}</p>
                       </div>
-                  </div>
-                  <h6 class="team-username">{{user.fullName}}</h6>
+              </div>
+              <h6 class="team-username">{{user.fullName}}</h6>
                 </a>
 
         </div>
-
         </div>
       </div>
+
+
     </div>
 
     <div class="row"  ng-show="!loadingTopTagSearch">
@@ -54,6 +55,9 @@
 
   <div class="text-center">
       <div class="container" ng-init="getTopTagMedias()">
+        <div ng-show="topMedias.length==0">
+          <empty-response><empty-response>
+        </div>
 
           <div class="row">
             <div ng-repeat="media in topMedias">
@@ -71,12 +75,12 @@
                             </div>
                           </div>
                           <div ng-if="media.type == 'video'">
-                            <img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}"  />
+                            <img src="{{media.imageStandardResolutionUrl}}" alt="{{media.caption}}"  />
                             <img src="assets/img/play-btn.png" class="imagePlay" alt="">
 
                           </div>
                           <div ng-if="media.type == 'image'">
-                            <img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}" />
+                            <img src="{{media.imageStandardResolutionUrl}}" alt="{{media.caption}}" />
                           </div>
                   </div>
                 </a>
@@ -123,12 +127,12 @@
                             </div>
                           </div>
                           <div ng-if="media.type == 'video'">
-                            <img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}"  />
+                            <img src="{{media.imageStandardResolutionUrl}}" alt="{{media.caption}}"  />
                             <img src="assets/img/play-btn.png" class="imagePlay" alt="">
 
                           </div>
                           <div ng-if="media.type == 'image'">
-                            <img src="{{media.imageThumbnailUrl}}" alt="{{media.caption}}" />
+                            <img src="{{media.imageStandardResolutionUrl}}" alt="{{media.caption}}" />
                           </div>
                   </div>
                 </a>
