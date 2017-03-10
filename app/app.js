@@ -11,9 +11,8 @@ angular.module('instaPage', [
   'instaPage.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  //pretty html5 URL with out #
-  $locationProvider.html5Mode({enabled:true}).hashPrefix('!');
-  $routeProvider.otherwise({redirectTo: '/home'});
+  
+  $routeProvider.otherwise({redirectTo: '/'});
 }]).
 controller('SearchCtrl', [ "$scope", "$location", function($scope, $location) {
   $scope.searchVal = "";

@@ -12,10 +12,10 @@ body {
     width: 100%;
     height: 100%;
     font-family: 'Lato',sans-serif;
-  font-weight: 300;
+    font-weight: 300;
     color: #666;
-    background-color: #fff;
-  font-size: 16px;
+    background-color: #fafafa;
+    font-size: 16px;
     line-height: 1.6em;
 }
 
@@ -64,7 +64,9 @@ h1.h-light,h2.h-light,h3.h-light ,h4.h-light ,h5.h-light ,h6.h-light  {
 }
 
 h1.h-bold,h2.h-bold,h3.h-bold ,h4.h-bold ,h5.h-bold ,h6.h-bold  {
-  font-weight: 600;
+  font-weight: 600; font-family: "Great Vibes", cursive; color: #fff;
+  text-shadow: 1px 1px 0 rgb(0,0,0), -1px -1px 0 rgb(0,0,0), 1px -1px 0 rgb(0,0,0), -1px 1px 0 rgb(0,0,0), 4px 4px 8px rgb(250,250,250), -4px 4px 8px rgb(250,250,250), 4px -4px 8px rgb(250,250,250), -4px -4px 8px rgb(250,250,250);
+
 }
 
 h1.font-light,h2.font-light,h3.font-light,h4.font-light,h5.font-light,h6.font-light {
@@ -94,28 +96,28 @@ p {
 #home{
 padding:0px !important;margin:0px !important;
 }
-.pd_none{padding:0px !important;margin:0px !important;}
 .cover{
   position: inherit;
-  background-image: url(assets/img/home-cover.jpg);
+  background-image: url(assets/img/home-cover.png);
   background-position: bottom;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  margin: 0;
+  max-height: 200px;
+  margin: 0px !important;
   text-transform: uppercase;
-  padding: 190px 0;
+  padding: 100px 0;
   color: #fff;
 }
+
 #home .caption {
 	position: absolute;
-	width: 600px;
-	top: 20%;
+	top: 15%;
 
 }
-
+/*
 #home .caption h2 {
 	font-family: 'Josefin Sans', sans-serif;
 	font-weight: 700;
@@ -159,7 +161,6 @@ padding:0px !important;margin:0px !important;
     color: #01b1d7;
 }
 
-/*Media*/
 @media screen and (min-width: 320px) and (max-width: 520px) {
   #home{
     margin-top: 50px;
@@ -191,7 +192,6 @@ padding:0px !important;margin:0px !important;
 	}
 }
 
-/*Media*/
 @media screen and (min-width: 521px) and (max-width: 980px) {
 
 	#home .caption {
@@ -218,7 +218,7 @@ padding:0px !important;margin:0px !important;
 		margin-top: 15px;
 
 	}
-}
+}*/
 
 /* ===========================
 --- Nav Bars
@@ -237,17 +237,17 @@ padding:0px !important;margin:0px !important;
 }
 .navbar-brand {
  font-family: "Great Vibes", cursive;
-
  font-size: 28px;
-line-height: 10px;
-
+ line-height: 10px;
   font-weight: normal;
   margin-bottom: 0px;
-
   text-shadow: 0 1px 1px #fff;
 }
+.navbar-brand {
+    padding: 8px 15px;
+}
 .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #fff;
+    color: #000000;
     outline: none;
 }
 .navbar-default .navbar-nav > li > a{
@@ -267,7 +267,19 @@ line-height: 10px;
 
 .top-nav-collapse {
     padding: 0;
-    background: rgba(1,177,215, 0.9);
+    background: rgba(255,255,255, 0.9);
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
+
+.home-search{
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: 1px solid #DDD;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.53), 0 -1px 2px #FFF, 0 1px 0 #FFF;
+    height: 40px;
 }
 
 .stylish-input-group .input-group-addon{
@@ -277,16 +289,13 @@ line-height: 10px;
 
         /* IE7-8 doesn't have border-radius, so don't indent the padding */
         font-family: 'Josefin Sans', sans-serif;
-      	background-color: rgba(197, 250, 220, 0.65);
-      	color: #FFFFFF;
-      	border: 1px solid #fff;
-        margin-bottom: 0;
-        -webkit-border-radius: 6px;
-        -moz-border-radius: 6px;
-        border-radius: 6px;
+        background-color: #fafafa;
+        border: solid 1px #dbdbdb;
+        border-radius: 3px;
+        color: #262626; 
 }
 .stylish-input-group  input:hover {
-	background-color: #fff;
+	 background-color: #fff;
     border: 1px solid #01b1d7;
     transition: 0.3s;
     color: #01b1d7;
@@ -430,7 +439,8 @@ line-height: 10px;
 	border-bottom-left-radius:0;
 }
 .team-wrapper-big, .team-wrapper-small { width: 100%; position: relative; text-align: center; height: 263px;
- width: 263px; overflow: hidden;}
+ width: 263px; overflow: hidden;     -webkit-box-shadow: 2px 2px 10px 2px #000; -moz-box-shadow: 2px 2px 10px 2px #000;
+ box-shadow: 2px 2px 10px 2px #000; margin-bottom: 7%;}
 .team-wrapper-big img, .team-wrapper-small img { height: 263px; width: 263px; }
 .team-wrapper-big:hover .team-wrapper-overlay h5 { bottom: 70%; color: #fff; visibility: visible; }
 .team-wrapper-big:hover .team-wrapper-overlay h6, .team-wrapper-small:hover .team-wrapper-overlay h6 { bottom: 60%; color: #fff; }
@@ -471,8 +481,10 @@ line-height: 10px;
 .content-item {
     padding:30px 0;
 		padding-top: 70px;
-	background-color:#FFFFFF;
+	background-color:#fafafa;
 }
+
+
 
 .content-item.grey {
 	background-color:#F0F0F0;
@@ -505,10 +517,10 @@ line-height: 10px;
 /* BOXES Post Info */
 
 .box {
-	background-color:#FFFFFF;
-	padding:10px 20px;
-	box-shadow:0 1px 2px 0 rgba(0,0,0,0.1);
-	margin-bottom:20px;
+	  background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+    margin: 20px 0;
 }
 
 .box ul {
@@ -548,9 +560,10 @@ line-height: 10px;
 	border:3px solid #999999;
 	padding:2px;
 }
-#gallery-item .owner-img{
-	max-width: 90px;
-	max-height: 90px;
+
+.owner-img{
+	max-width: 15%;
+	max-height: 15%;
 }
 /* Post Comment Box*/
 .comment-img{

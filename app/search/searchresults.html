@@ -23,7 +23,7 @@
     <div class="row" >
       <div ng-repeat="user in users | limitTo: 6">
         <div class="col-sm-4 col-md-2">
-            <a href="#!/user/{{user.username}}" class="team-members-link">
+            <a href="#/user/{{user.username}}" class="team-members-link">
               <div class="team-members">
                   <div class="team-avatar">
                       <img class="img-responsive" src="{{user.profilePicUrl}}" alt="{{user.fullName}}">
@@ -62,8 +62,8 @@
           <div class="row">
             <div ng-repeat="media in topMedias">
               <div class="col-xs-12 col-sm-6 col-md-3 marginTop10">
-                <a href="#!/post/{{media.code}}">
-                  <div class="team-wrapper-big wow bounceInUp " data-wow-delay="0.2s">
+                <a href="#/post/{{media.code}}">
+                  <div class="team-wrapper-big " >
                           <div class="team-wrapper-overlay">
                             <!--<h5>Adrian Dawn</h5> !-->
                             <p>{{media.caption}}</p>
@@ -114,7 +114,7 @@
           <div class="row">
             <div ng-repeat="media in medias">
               <div class="col-xs-12 col-sm-6 col-md-3 marginTop10">
-                <a href="#!/post/{{media.code}}">
+                <a href="#/post/{{media.code}}">
                   <div class="team-wrapper-big wow bounceInUp " data-wow-delay="0.2s">
                           <div class="team-wrapper-overlay">
                             <!--<h5>Adrian Dawn</h5> !-->

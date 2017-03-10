@@ -24,7 +24,7 @@ controller('userCtrl', ['$scope', '$http', '$location', '$routeParams', function
     $scope.loadingError = false;
     //get user informations info
      $scope.getUser = function(){
-     $http.get('http://localhost:8080/instagram/getUser.php',{params: { username: username}})
+     $http.get('http://localhost:8080/instagram/getUser.php',{cache: true,params: { username: username}})
      .success(function(response){
          $scope.user = response;
          $scope.isPrivate= response.isPrivate;
@@ -44,7 +44,7 @@ controller('userCtrl', ['$scope', '$http', '$location', '$routeParams', function
      //get user Medias
      $scope.getUserMedias = function(){
        var username = $routeParams.username;
-     $http.get('http://localhost:8080/instagram/getUserMedias.php',{params: { username: username}})
+     $http.get('http://localhost:8080/instagram/getUserMedias.php',{cache: true,params: { username: username}})
      .success(function(response){
          $scope.medias = response;
         console.log($scope.medias);

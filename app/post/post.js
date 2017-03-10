@@ -14,8 +14,8 @@ filter('createAnchors', function ($sce) {
           return str;
         }
         return $sce.trustAsHtml(str.
-                                replace(/#(\S*)/g,'<a href="#!/tag/$1">#$1</a>').
-                                replace(/@(\S*)/g,'<a href="#!/user/$1">@$1</a>')
+                                replace(/#(\S*)/g,'<a href="#/tag/$1">#$1</a>').
+                                replace(/@(\S*)/g,'<a href="#/user/$1">@$1</a>')
                                );
     }
 }).

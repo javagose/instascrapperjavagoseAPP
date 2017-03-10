@@ -3,7 +3,7 @@
 angular.module('instaPage.page', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/home', {
+  $routeProvider.when('/', {
     title : "insta Page - brows Instagram Tags, users, photos, and videos",
     templateUrl: 'page/home.html',
     controller: 'homeCtrl'

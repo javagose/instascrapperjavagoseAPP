@@ -28,14 +28,14 @@
                     </div>
 
 
-                      <div class="" ng-if="media.type == 'image'">
-                        <img src="{{media.imageHighResolutionUrl}}" class="img-responsive" alt="">
+                      <div class="post-cover" ng-if="media.type == 'image'">
+                        <img src="{{media.imageHighResolutionUrl}}" class="img-responsive post-img" alt="">
                       </div>
                     </div>
                     <div class="col-md-4">
                       <img src="{{media.owner.profilePicUrl}}" alt="{{media.owner.username}}" class="img-circle owner-img">
-                      <a href="#!/user/{{media.owner.username}}/{{media.owner.fullName}}">{{media.owner.fullName}}</a>
-                      <div google-ads-rec class="box"></div>
+                      <a href="#/user/{{media.owner.username}}/{{media.owner.fullName}}">{{media.owner.fullName}}</a>
+                      <!--ads-->
                         <div class="box">
                           <small><cite title="Source Title">{{media.locationName}}  <i class="icon-map-marker"></i></cite></small>
                             <p ng-bind-html="media.caption | createAnchors"></p>
@@ -52,7 +52,7 @@
         </section>
 
 
-    <div ng-init="getMediaComments()" class="row box">
+    <div ng-init="getMediaComments()" class="row">
       <div class="col-md-8">
         <center>
           <div class="text-center">
@@ -61,12 +61,12 @@
               </div>
             </div>
         </center>
-        <google-ads-lb></google-ads-lb>
+        <!--ads-->
         <div ng-show="!loadingComment">
           <ul class="list-group" ng-repeat="comment in mediaComments">
             <li class="list-group-item comment-box">
                         <img src="{{comment.user.profilePicUrl}}" alt="{{comment.user.username}}" class="paul-left img-circle comment-img">
-                          <a href="#!/user/{{comment.user.username}}/{{media.owner.fullName}}">{{comment.user.username}}</a>
+                          <a href="#/user/{{comment.user.username}}/{{media.owner.fullName}}">{{comment.user.username}}</a>
                          <span ng-bind-html="comment.text | createAnchors"></span>
                 </li>
           </ul>

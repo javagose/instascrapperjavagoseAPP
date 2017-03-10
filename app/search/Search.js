@@ -21,7 +21,7 @@ angular.module('instaPage.search', ['ngRoute'])
   $scope.loadingTag = true;
   $scope.loadingTopTag=  true;
   $scope.getTopTagMedias = function(){
-  $http.get('http://localhost:8080/instagram/getTopMediaByTags.php',{params: { tag_name: tag_name}})
+  $http.get('http://localhost:8080/instagram/getTopMediaByTags.php',{cache: true, params: {tag_name: tag_name}})
   .success(function(response){
        $scope.topMedias = response;
        $scope.tag_name = tag_name;
@@ -38,7 +38,7 @@ angular.module('instaPage.search', ['ngRoute'])
    });
   }
    $scope.getTagMedias = function(){
-   $http.get('http://localhost:8080/instagram/getMediaByTags.php',{params: { tag_name: tag_name}})
+   $http.get('http://localhost:8080/instagram/getMediaByTags.php',{cache: true,params: { tag_name: tag_name}})
    .success(function(response){
         $scope.medias = response;
        console.log("success");
@@ -72,7 +72,7 @@ angular.module('instaPage.search', ['ngRoute'])
     $scope.loadingErrorTag = false;
 
    $scope.getUsersbyUsername = function(){
-   $http.get('http://localhost:8080/instagram/getUsersbyUsername.php',{params: { username: name}})
+   $http.get('http://localhost:8080/instagram/getUsersbyUsername.php',{cache: true,params: { username: name}})
    .success(function(response){
      if (response == [] || response == null) {
        emptyUser = true;
@@ -90,7 +90,7 @@ angular.module('instaPage.search', ['ngRoute'])
     });
    }
    $scope.getTopTagMedias = function(){
-   $http.get('http://localhost:8080/instagram/getTopMediaByTags.php',{params: { tag_name: name}})
+   $http.get('http://localhost:8080/instagram/getTopMediaByTags.php',{cache: true,params: { tag_name: name}})
    .success(function(response){
         $scope.topMedias = response;
        console.log("Top success");
@@ -106,7 +106,7 @@ angular.module('instaPage.search', ['ngRoute'])
     });
    }
    $scope.getTagMedias = function(){
-   $http.get('http://localhost:8080/instagram/getMediaByTags.php',{params: { tag_name: name}})
+   $http.get('http://localhost:8080/instagram/getMediaByTags.php',{cache: true,params: { tag_name: name}})
    .success(function(response){
         $scope.medias = response;
         console.log(response);
