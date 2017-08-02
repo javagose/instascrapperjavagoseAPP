@@ -1,5 +1,4 @@
-# `angular-seed` — the seed for AngularJS apps
-
+# instascrapperjavagose - Web Application that consume instagram-php-scraper
 This project is an application  To Consume and Parse Instagram Content provided by instagram-php-scraper Repository .
 
 
