@@ -16,7 +16,30 @@ angular.module('instaPage.user', ['ngRoute'])
     controller: 'userCtrl'
   });
 }]).
-controller('userCtrl', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams) {
+service("userService",
+function($http) {
+  return {
+    getUserInfo: function(username) {
+       var user = {};
+       $http.get('http://localhost:8080/instagram/getUser.php',{cache: true,params: { username: username}})
+     .success(function(response){
+      
+       user.userInfo = response;
+       user.isPrivate= response.isPrivate;
+       })
+       .catch(function (err) {
+        // Log error somehow.
+        user.loadingError = true;
+      })
+      .finally(function () {
+        // Hide loading spinner whether our call succeeded or failed.
+
+      });
+      return user;
+    }
+  };
+}).
+controller('userCtrl', ['$scope', '$http', '$location', '$routeParams', 'userService', function($scope, $http, $location, $routeParams, userService) {
     console.log("controller called ...");
     var username = $routeParams.username;
     $scope.loadingUser = true;
@@ -24,21 +47,10 @@ controller('userCtrl', ['$scope', '$http', '$location', '$routeParams', function
     $scope.loadingError = false;
     //get user informations info
      $scope.getUser = function(){
-     $http.get('http://localhost:8080/instagram/getUser.php',{cache: true,params: { username: username}})
-     .success(function(response){
-         $scope.user = response;
-         $scope.isPrivate= response.isPrivate;
-         console.log($scope.isPrivate);
-       })
-       .catch(function (err) {
-        // Log error somehow.
-        $scope.loadingError = true;
-        console.log("true");
-      })
-      .finally(function () {
-        // Hide loading spinner whether our call succeeded or failed.
-
-      });
+      var user = userService.getUserInfo(username);
+      $scope.user = user.userInfo;
+      $scope.isPrivate= user.isPrivate;
+      $scope.loadingError = user.loadingError;
      }
 
      //get user Medias
